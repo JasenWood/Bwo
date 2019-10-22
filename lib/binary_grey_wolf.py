@@ -173,11 +173,14 @@ def repeat_iter(X_train, y_train, simulation, N, T, estimator, mode, error_name)
     pass
 
 
-def german(estimator_name, error_name, mode, simulation=10, N=10, T=30):
-    path = r'raw_data/test_data_01/german_credit.csv'
+def german(path, estimator_name, error_name, mode, simulation=10, N=10, T=30):
     data = pd.read_csv(path)
-    y_train = data['Creditability']
-    X_train = data.drop('Creditability', axis=1)
+    if 'aus' in path:
+        y_train = data['y']
+        X_train = data.drop('y', axis=1)
+    else:
+        y_train = data['Creditability']
+        X_train = data.drop('Creditability', axis=1)
     del data
 
     if estimator_name == 'KNN':
@@ -189,4 +192,14 @@ def german(estimator_name, error_name, mode, simulation=10, N=10, T=30):
 
 
 if __name__ == '__main__':
-    german('KNN', 'accuracy', mode='bwo')
+    path = r'raw_data/test_data_01/german_credit.csv'
+    german(path, 'KNN', 'accuracy', mode='bwo')
+    german(path, 'KNN', 'accuracy', mode='ibwo')
+    german(path, 'RF', 'accuracy', mode='bwo')
+    german(path, 'RF', 'accuracy', mode='ibwo')
+
+    path = r'raw_data/test_data_01/aus.csv'
+    german(path, 'KNN', 'accuracy', mode='bwo')
+    german(path, 'KNN', 'accuracy', mode='ibwo')
+    german(path, 'RF', 'accuracy', mode='bwo')
+    german(path, 'RF', 'accuracy', mode='ibwo')
