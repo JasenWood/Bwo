@@ -1,0 +1,9 @@
+pandas -i https://pypi.tuna.tsinghua.edu.cn/simple
+numpy -i https://pypi.tuna.tsinghua.edu.cn/simple
+sklearn -i https://pypi.tuna.tsinghua.edu.cn/simple
+matplotlib -i https://pypi.tuna.tsinghua.edu.cn/simple
+lightgbm==2.1.1 -i https://pypi.tuna.tsinghua.edu.cn/simple
+seaborn==0.8.1 -i https://pypi.tuna.tsinghua.edu.cn/simple
+astropy -i https://pypi.tuna.tsinghua.edu.cn/simple
+pandas_profiling -i https://pypi.tuna.tsinghua.edu.cn/simple
+python-util
